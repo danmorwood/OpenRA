@@ -236,6 +236,14 @@ namespace OpenRA.Mods.Common.Traits
 					break;
 				}
 
+				case "DevTurnMeOn":
+					{
+						// Do Create actor and add it
+						//self.World.Add()
+
+						break;
+					}
+
 				default:
 					return;
 			}

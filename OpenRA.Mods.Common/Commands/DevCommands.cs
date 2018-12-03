@@ -56,6 +56,8 @@ namespace OpenRA.Mods.Common.Commands
 			register("poweroutage", "causes owners of selected actors to have a 5 second power outage.");
 			register("kill", "kills selected actors.");
 			register("dispose", "disposes selected actors.");
+			register("HowDoYouTurnThisOn", "spawns cool car thingy.");
+
 		}
 
 		public void InvokeCommand(string name, string arg)
@@ -151,6 +153,12 @@ namespace OpenRA.Mods.Common.Commands
 
 						world.IssueOrder(new Order("DevDispose", world.LocalPlayer.PlayerActor, Target.FromActor(actor), false));
 					}
+
+					break;
+
+				case "HowDoYouTurnThisOn":
+					Game.Debug("Helping {0} turn this on.", world.LocalPlayer.PlayerName);
+					IssueDevCommand(world, "DevTurnMeOn");
 
 					break;
 			}
