@@ -833,3 +833,32 @@ STNK:
 	-MustBeDestroyed:
 	ProducibleWithLevel:
 		Prerequisites: vehicles.upgraded
+
+# New Race Car Cehicle
+Race:
+	Inherits: ^Vehicle
+	Inherits@GAINSEXPERIENCE: ^GainsExperience
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 100000
+		Prerequisites: ~vehicles.allies, ~techlevel.low
+		Description: Cheat Jeep Race Car\nHigh Speed\n No Attack\n
+	Valued:
+		Cost: 0
+	Tooltip:
+		Name: JeepRaceCar
+	Health:
+		HP: 15000
+	Armor:
+		Type: None
+	Mobile:
+		TurnSpeed: 10
+		Speed: 1000
+		#This might need to be bigger
+		RequiresCondition: !notmobile && !being-captured
+	RevealsShroud:
+		Range: 8c0
+		RevealGeneratedShroud: False
+	RenderSprites:
+		Image: JEEP
