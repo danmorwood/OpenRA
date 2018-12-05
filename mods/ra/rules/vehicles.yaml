@@ -252,11 +252,11 @@ V2RL:
 		Name: Boom Boom Tank
 		GenericName: Tank
 	Health:
-		HP: 90000
+		HP: 900
 	Armor:
 		Type: Heavy
 	Mobile:
-		Speed: 700
+		Speed: 70
 		Locomotor: heavytracked
 	RevealsShroud:
 		Range: 7c0
@@ -269,7 +269,7 @@ V2RL:
 		Weapon: MiniNuke
 		EmptyWeapon: MiniNuke
 		DamageSource: Killer
-		splash: 100
+		splash: 200
 	Chronoshiftable:
 		ExplodeInstead: yes
 	AttackSuicides:
@@ -280,7 +280,7 @@ V2RL:
 	WithMuzzleOverlay:
 	WithSpriteTurret:
 	SpawnActorOnDeath:
-		Actor: 2TNK.Husk
+		Actor: 4TNK.Husk
 	SelfHealing:
 		Step: 100
 		Delay: 3
