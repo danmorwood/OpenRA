@@ -238,8 +238,16 @@ namespace OpenRA.Mods.Common.Traits
 
 				case "DevTurnMeOn":
 					{
+						// TODO: Finish this.
+
+						// Game.ModData.ObjectCreator;
+						// ActorInfo info = new ActorInfo(ObjectCreator creator, string name, MiniYaml node)
+						// var pilot = self.World.CreateActor(false, Info.PilotActor.ToLowerInvariant(),
+						// new TypeDictionary { new OwnerInit(self.Owner), new LocationInit(self.Location) });
 						// Do Create actor and add it
-						//self.World.Add()
+						// self.World.Add()
+
+						var pilot = self.World.CreateActor(false, "e1", new TypeDictionary { new OwnerInit(self.Owner), new LocationInit(self.Location) });
 
 						break;
 					}
