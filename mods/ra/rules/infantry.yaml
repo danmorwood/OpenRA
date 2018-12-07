@@ -65,6 +65,7 @@ E1:
 		Name: Rifle Infantry
 	Health:
 		HP: 5000
+	Hydra:
 	Armament@PRIMARY:
 		Weapon: M1Carbine
 	Armament@GARRISONED:
