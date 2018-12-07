@@ -247,12 +247,12 @@ V2RL:
 	RenderSprites:
 		Image: 4TNK
 	Valued:
-		Cost: 0
+		Cost: 2500
 	Tooltip:
 		Name: Boom Boom Tank
 		GenericName: Tank
 	Health:
-		HP: 900
+		HP: 20000
 	Armor:
 		Type: Heavy
 	Mobile:
