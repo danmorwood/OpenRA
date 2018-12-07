@@ -13,21 +13,9 @@ namespace OpenRA.Mods.Common.Traits
 	[Desc("Eject a ground soldier or a paratrooper while in the air.")]
 	public class HydraInfo : ConditionalTraitInfo
 	{
-		[ActorReference]
-		[Desc("Name of the unit to eject. This actor type needs to have the Parachutable trait defined.")]
-		public readonly string PilotActor = "E1";
-
-		[Desc("Probability that the aircraft's pilot gets ejected once the aircraft is destroyed.")]
-		public readonly int SuccessRate = 50;
-
-		[Desc("Sound to play when ejecting the pilot from the aircraft.")]
-		public readonly string ChuteSound = null;
-
-		[Desc("Can a destroyed aircraft eject its pilot while it has not yet fallen to ground level?")]
-		public readonly bool EjectInAir = false;
-
-		[Desc("Can a destroyed aircraft eject its pilot when it falls to ground level?")]
-		public readonly bool EjectOnGround = true;
+		
+		[Desc("Can a killed soldier be hyrdolated?")]
+		public readonly bool KilledOnGround = true;
 
 		[Desc("Risks stuck units when they don't have the Paratrooper trait.")]
 		public readonly bool AllowUnsuitableCell = false;
@@ -46,22 +34,19 @@ namespace OpenRA.Mods.Common.Traits
 				return;
 
 			var cp = self.CenterPosition;
-			var inAir = !self.IsAtGroundLevel();
-			if ((inAir && !Info.EjectInAir) || (!inAir && !Info.EjectOnGround))
-				return;
 
-			var hydra1 = self.World.CreateActor(false, Info.PilotActor.ToLowerInvariant(),
+			var hydra1 = self.World.CreateActor(false, self.Info.Name,
 				new TypeDictionary { new OwnerInit(self.Owner), new LocationInit(self.Location) });
 
-			var hydra2 = self.World.CreateActor(false, Info.PilotActor.ToLowerInvariant(),
+			var hydra2 = self.World.CreateActor(false, self.Info.Name,
 				new TypeDictionary { new OwnerInit(self.Owner), new LocationInit(self.Location) });
 
 			if (Info.AllowUnsuitableCell || IsSuitableCell(self, hydra1))
 			{
 				self.World.AddFrameEndTask(w => w.Add(hydra1));
-				var pilotMobile = hydra1.TraitOrDefault<Mobile>();
-				if (pilotMobile != null)
-					pilotMobile.Nudge(hydra1, hydra1, true);
+				var hydraMobile = hydra1.TraitOrDefault<Mobile>();
+				if (hydraMobile != null)
+					hydraMobile.Nudge(hydra1, hydra1, true);
 			}
 			else
 				hydra1.Dispose();
@@ -69,9 +54,9 @@ namespace OpenRA.Mods.Common.Traits
 			if (Info.AllowUnsuitableCell || IsSuitableCell(self, hydra2))
 			{
 				self.World.AddFrameEndTask(w => w.Add(hydra2));
-				var pilotMobile = hydra1.TraitOrDefault<Mobile>();
-				if (pilotMobile != null)
-					pilotMobile.Nudge(hydra2, hydra2, true);
+				var hydraMobile = hydra1.TraitOrDefault<Mobile>();
+				if (hydraMobile != null)
+					hydraMobile.Nudge(hydra2, hydra2, true);
 			}
 			else
 				hydra2.Dispose();
