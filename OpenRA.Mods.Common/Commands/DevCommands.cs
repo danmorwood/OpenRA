@@ -73,6 +73,12 @@ namespace OpenRA.Mods.Common.Commands
 
 			switch (name)
 			{
+				case "howdoyouturnthison":
+					Game.Debug("Helping {0} turn this on.", world.LocalPlayer.PlayerName);
+					IssueDevCommand(world, "DevTurnMeOn");
+
+					break;
+
 				case "givecash":
 					var givecashorder = new Order("DevGiveCash", world.LocalPlayer.PlayerActor, false);
 					int cash;
@@ -156,11 +162,6 @@ namespace OpenRA.Mods.Common.Commands
 
 					break;
 
-				case "HowDoYouTurnThisOn":
-					Game.Debug("Helping {0} turn this on.", world.LocalPlayer.PlayerName);
-					IssueDevCommand(world, "DevTurnMeOn");
-
-					break;
 			}
 		}
 
