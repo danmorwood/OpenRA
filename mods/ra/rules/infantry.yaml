@@ -65,6 +65,7 @@ E1:
 		Name: Rifle Infantry
 	Health:
 		HP: 5000
+	Hydra:
 	Armament@PRIMARY:
 		Weapon: M1Carbine
 	Armament@GARRISONED:
@@ -148,6 +149,7 @@ E3:
 		Name: Rocket Soldier
 	Health:
 		HP: 4500
+	Hydra:
 	Armament@PRIMARY:
 		Weapon: RedEye
 		LocalOffset: 0,0,555
