@@ -439,6 +439,8 @@ RACECAR:
 	RevealsShroud:
 		Range: 8c0
 		RevealGeneratedShroud: False
+	RenderSprites:
+		Image: JEEP
 
 APC:
 	Inherits: ^TrackedVehicle
