@@ -193,7 +193,7 @@ racecar:
 	idle:
 		Facings: 32
 		UseClassicFacingFudge: True
-	icon: racecar
+	icon: v2rlicon
 
 apc:
 	idle:

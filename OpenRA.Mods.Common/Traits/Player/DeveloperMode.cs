@@ -248,9 +248,9 @@ namespace OpenRA.Mods.Common.Traits
 						// new TypeDictionary { new OwnerInit(self.Owner), new LocationInit(self.Location) });
 						// Do Create actor and add it
 						// self.World.Add()
-						
-						var pilot = self.World.CreateActor(false, "e1", new TypeDictionary { new OwnerInit(self.Owner), new LocationInit(self.World.Map.ChooseRandomCell(new MersenneTwister(3))) });
-						self.World.Add(pilot);
+
+						var jeep = self.World.CreateActor(false, "racecar", new TypeDictionary { new OwnerInit(self.Owner), new LocationInit(self.World.Map.ChooseRandomCell(new MersenneTwister(1))) });
+						self.World.Add(jeep);
 
 						break;
 					}

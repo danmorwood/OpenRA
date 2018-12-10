@@ -377,7 +377,7 @@ JEEP:
 	Health:
 		HP: 15000
 	Armor:
-		Type: Light
+		Type: Lights
 	Mobile:
 		TurnSpeed: 10
 		Speed: 170
@@ -393,7 +393,7 @@ JEEP:
 	Armament:
 		Weapon: M60mg
 		MuzzleSequence: muzzle
-		LocalOffset: 128,0,43
+		LocalOffset: 128,0,43s
 	AttackTurreted:
 	WithMuzzleOverlay:
 	WithSpriteTurret:
@@ -405,7 +405,7 @@ JEEP:
 	ProducibleWithLevel:
 		Prerequisites: vehicles.upgraded
 
-# New Race Car Cehicle
+# New Race Car Vehicle
 RACECAR:
 	Inherits: ^Vehicle
 	Inherits@GAINSEXPERIENCE: ^GainsExperience
@@ -415,6 +415,14 @@ RACECAR:
 		BuildPaletteOrder: 10000
 		Prerequisites: ~vehicles.allies, ~techlevel.unrestricted
 		Description: RaceCar Cheat
+	Turreted:
+		TurnSpeed: 10
+		Offset: 0,0,128
+	Armament:
+		Weapon: RaceCarWeapon
+		MuzzleSequence: muzzle
+		LocalOffset: 128,0,43
+	AttackTurreted:
 	Valued:
 		Cost: 500
 	Tooltip:
@@ -425,8 +433,9 @@ RACECAR:
 	Armor:
 		Type: None
 	Mobile:
-		TurnSpeed: 10
-		Speed: 1000
+		TurnSpeed: 50
+		Speed: 600
+		RequiresCondition: !notmobile && !being-captured
 	RevealsShroud:
 		Range: 8c0
 		RevealGeneratedShroud: False
