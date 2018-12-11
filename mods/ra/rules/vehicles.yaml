@@ -81,6 +81,8 @@ V2RL:
 	WithSpriteTurret:
 	SpawnActorOnDeath:
 		Actor: 1TNK.Husk
+		OwnerType: InternalName
+		EffectiveOwnerFromOwner: true
 	ProducibleWithLevel:
 		Prerequisites: vehicles.upgraded
 
@@ -122,6 +124,8 @@ V2RL:
 	WithSpriteTurret:
 	SpawnActorOnDeath:
 		Actor: 2TNK.Husk
+		OwnerType: InternalName
+		EffectiveOwnerFromOwner: true
 	SelectionDecorations:
 	ProducibleWithLevel:
 		Prerequisites: vehicles.upgraded
@@ -166,6 +170,8 @@ V2RL:
 	WithSpriteTurret:
 	SpawnActorOnDeath:
 		Actor: 3TNK.Husk
+		OwnerType: InternalName
+		EffectiveOwnerFromOwner: true
 	SelectionDecorations:
 	ProducibleWithLevel:
 		Prerequisites: vehicles.upgraded
@@ -219,6 +225,8 @@ V2RL:
 	WithSpriteTurret:
 	SpawnActorOnDeath:
 		Actor: 4TNK.Husk
+		OwnerType: InternalName
+		EffectiveOwnerFromOwner: true
 	SelfHealing:
 		Step: 100
 		Delay: 3
@@ -293,7 +301,6 @@ HARV:
 		BaleUnloadDelay: 1
 		SearchFromProcRadius: 30
 		SearchFromOrderRadius: 11
-		EmptyCondition: no-ore
 	Health:
 		HP: 60000
 	Armor:
@@ -310,6 +317,8 @@ HARV:
 		String: Harvester
 	SpawnActorOnDeath:
 		Actor: HARV.EmptyHusk
+		OwnerType: InternalName
+		EffectiveOwnerFromOwner: true
 	HarvesterHuskModifier:
 		FullHuskActor: HARV.FullHusk
 		FullnessThreshold: 50
@@ -319,7 +328,6 @@ HARV:
 		HealIfBelow: 50
 		DamageCooldown: 500
 	Explodes:
-		RequiresCondition: !no-ore
 		Weapon: OreExplosion
 
 MCV:
@@ -358,6 +366,8 @@ MCV:
 	BaseBuilding:
 	SpawnActorOnDeath:
 		Actor: MCV.Husk
+		OwnerType: InternalName
+		EffectiveOwnerFromOwner: true
 	TransferTimedExternalConditionOnTransform:
 		Condition: invulnerability
 
@@ -381,7 +391,7 @@ JEEP:
 	Mobile:
 		TurnSpeed: 10
 		Speed: 170
-		RequiresCondition: !notmobile && !being-captured
+		RequiresCondition: !notmobile
 	RevealsShroud:
 		Range: 8c0
 		RevealGeneratedShroud: False
@@ -424,7 +434,7 @@ APC:
 		Type: Heavy
 	Mobile:
 		Speed: 142
-		RequiresCondition: !notmobile && !being-captured
+		RequiresCondition: !notmobile
 	RevealsShroud:
 		Range: 5c0
 		RevealGeneratedShroud: False
@@ -482,8 +492,6 @@ MNLY:
 		Weapon: ATMine
 	RenderSprites:
 		Image: MNLY
-	Rearmable:
-		RearmActors: fix
 
 TRUK:
 	Inherits: ^Vehicle
@@ -511,6 +519,41 @@ TRUK:
 		PlayerExperience: 50
 	SpawnActorOnDeath:
 		Actor: moneycrate
+
+TRJN:
+	Inherits: ^Vehicle
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 1000
+		Prerequisites: ~techlevel.low
+		Description: Swags on its enemies.\n  Unarmed
+	Valued:
+		Cost: 500
+	Tooltip:
+		Name: Open the gates
+	Selectable:
+		Priority: 6
+	Health:
+		HP: 11000
+	Armor:
+		Type: Light
+	Mobile:
+		Speed: 128
+	RevealsShroud:
+		Range: 4c0
+	DeliversCash:
+		Payload: 500
+		PlayerExperience: 50
+    Cargo:
+		Types: Infantry
+		MaxWeight: 7
+		PipCount: 7
+        InitialUnits: E1,E1,E1,E1,E1,E3,E3
+		LoadingCondition: notmobile
+    RenderSprites:
+        Image: HARV
+    Targetable:
+        RequiresForceFire: true
 
 MGG:
 	Inherits: ^Vehicle
@@ -543,6 +586,8 @@ MGG:
 	RenderShroudCircle:
 	SpawnActorOnDeath:
 		Actor: MGG.Husk
+		OwnerType: InternalName
+		EffectiveOwnerFromOwner: true
 
 MRJ:
 	Inherits: ^Vehicle
@@ -759,10 +804,10 @@ QTNK:
 	Armor:
 		Type: Heavy
 	Mobile:
-		RequiresCondition: !deployed && !being-captured
+		RequiresCondition: !deployed
 		Speed: 56
 	Chronoshiftable:
-		RequiresCondition: !deployed && !being-captured
+		RequiresCondition: !deployed
 	RevealsShroud:
 		Range: 6c0
 		RevealGeneratedShroud: False
@@ -797,7 +842,7 @@ STNK:
 	Mobile:
 		Speed: 142
 		Locomotor: heavywheeled
-		RequiresCondition: !notmobile && !being-captured
+		RequiresCondition: !notmobile
 	RevealsShroud:
 		Range: 7c0
 		RevealGeneratedShroud: False
@@ -824,7 +869,7 @@ STNK:
 		CloakSound: appear1.aud
 		UncloakSound: appear1.aud
 		IsPlayerPalette: true
-		PauseOnCondition: cloak-force-disabled
+		RequiresCondition: !cloak-force-disabled
 	GrantConditionOnDamageState@UNCLOAK:
 		Condition: cloak-force-disabled
 		ValidDamageStates: Critical
