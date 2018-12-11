@@ -261,6 +261,14 @@ M60mg:
 	Report: pillbox1.aud
 	Burst: 5
 
+#Fake Weapon
+RaceCarWeapon:
+	Inherits: ^LightMG
+	ReloadDelay: 0
+	Range: 0
+	Report: pillbox1.aud
+	Burst: 0
+
 ^SnipeWeapon:
 	ReloadDelay: 80
 	Range: 2c512

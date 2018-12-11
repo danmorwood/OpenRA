@@ -189,6 +189,12 @@ jeep:
 		Facings: 8
 	icon: jeepicon
 
+#racecar:
+#	idle:
+#		Facings: 32
+#		UseClassicFacingFudge: True
+#	icon: v2rlicon
+
 apc:
 	idle:
 		Facings: 32

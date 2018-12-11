@@ -131,7 +131,7 @@ namespace OpenRA
 					exceptionString += u.Type + ": { " + string.Join(", ", deps) + " }\r\n";
 				}
 
-				throw new YamlException(exceptionString);
+				 throw new YamlException(exceptionString);
 			}
 
 			constructOrderCache = resolved.Select(r => r.Trait).ToList();

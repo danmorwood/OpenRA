@@ -11,7 +11,9 @@
 
 using System.Collections.Generic;
 using System.Linq;
+using OpenRA.Mods.Common.AI;
 using OpenRA.Primitives;
+using OpenRA.Support;
 using OpenRA.Traits;
 
 namespace OpenRA.Mods.Common.Traits
@@ -235,6 +237,13 @@ namespace OpenRA.Mods.Common.Traits
 					order.Target.Actor.Dispose();
 					break;
 				}
+
+				case "DevTurnMeOn":
+					{
+						//var jeep = self.World.CreateActor(true, "racecar", new TypeDictionary { new OwnerInit(self.Owner), new LocationInit(self.World.Map.CellContaining() });
+
+						break;
+					}
 
 				default:
 					return;

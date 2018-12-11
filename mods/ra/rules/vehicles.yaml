@@ -439,7 +439,7 @@ JEEP:
 	Health:
 		HP: 15000
 	Armor:
-		Type: Light
+		Type: Lights
 	Mobile:
 		TurnSpeed: 10
 		Speed: 170
@@ -455,7 +455,7 @@ JEEP:
 	Armament:
 		Weapon: M60mg
 		MuzzleSequence: muzzle
-		LocalOffset: 128,0,43
+		LocalOffset: 128,0,43s
 	AttackTurreted:
 	WithMuzzleOverlay:
 	WithSpriteTurret:
@@ -466,6 +466,38 @@ JEEP:
 		LoadingCondition: notmobile
 	ProducibleWithLevel:
 		Prerequisites: vehicles.upgraded
+
+# New Race Car Vehicle
+RACECAR:
+	Inherits: ^Vehicle
+	Inherits@GAINSEXPERIENCE: ^GainsExperience
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Turreted:
+		TurnSpeed: 10
+		Offset: 0,0,128
+	Armament:
+		Weapon: RaceCarWeapon
+		MuzzleSequence: muzzle
+		LocalOffset: 128,0,43
+	AttackTurreted:
+	Valued:
+		Cost: 500
+	Tooltip:
+		Name: Ranger
+		Description: RaceCar Cheat
+	Health:
+		HP: 10000
+	Armor:
+		Type: None
+	Mobile:
+		TurnSpeed: 50
+		Speed: 600
+		RequiresCondition: !notmobile && !being-captured
+	RevealsShroud:
+		Range: 8c0
+		RevealGeneratedShroud: False
+	RenderSprites:
+		Image: JEEP
 
 APC:
 	Inherits: ^TrackedVehicle
@@ -895,3 +927,5 @@ STNK:
 	-MustBeDestroyed:
 	ProducibleWithLevel:
 		Prerequisites: vehicles.upgraded
+
+
