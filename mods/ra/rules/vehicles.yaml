@@ -410,11 +410,6 @@ RACECAR:
 	Inherits: ^Vehicle
 	Inherits@GAINSEXPERIENCE: ^GainsExperience
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
-	Buildable:
-		Queue: Vehicle
-		BuildPaletteOrder: 10000
-		Prerequisites: ~vehicles.allies, ~techlevel.unrestricted
-		Description: RaceCar Cheat
 	Turreted:
 		TurnSpeed: 10
 		Offset: 0,0,128
